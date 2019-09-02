@@ -8,24 +8,14 @@ Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ## Starting Up The Containerized Environment
 ```
-cd fintegrity-poc-mono/docker-poc-testbed
+cd spark-cassandra-zeppelin-docker
 docker-compose up
 ```
 
 After starting up the environment, you can access the various web UIs listed below
 
-### Monitoring
-|Name|Description|URL|
-|---|---|---|
-|cAdvisor|Container monitoring process|http://localhost:8080/|
-|Prometheus|Metrics collection database|http://localhost:9090/|
-|Grafana|Metrics monitoring UI|http://localhost:3000/|
-|Elasticsearch|Logging collection database|http://localhost:9200/|
-|Kibana|A web UI for exploring data in Elasticsearch|http://localhost:5601/|
-|Demo Graph App|A web UI for exploring graph data in JanusGraph|http://localhost:9191/pgraph/index.html/|
-
 ### Zeppelin Server
-fter starting Zeppelin Server, navigate to http://localhost:8085 in a browser to access the Zeppelin UI. 
+After starting Zeppelin Server, navigate to http://localhost:8085 in a browser to access the Zeppelin UI. 
 
 An example notebook ("Example Spark and SparkSQL Notebook") is included with the Zeppelin notebook server.
 
