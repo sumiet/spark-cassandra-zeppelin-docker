@@ -1,0 +1,269 @@
+{
+  "paragraphs": [
+    {
+      "title": "Load JSON file to a Data Frame",
+      "text": "%spark\n\nprintln(\"Spark version:\"+spark.version)",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-02 14:36:35.309",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "fontSize": 9.0,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Spark version:2.4.3\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1564555940993_-137895145",
+      "id": "20160113-181412_829518708",
+      "dateCreated": "2019-07-31 06:52:20.993",
+      "dateStarted": "2019-09-02 14:34:12.672",
+      "dateFinished": "2019-09-02 14:34:12.940",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Cassandra CQL : Create keyspace, help and describe keyspace",
+      "text": "%cassandra\n\nCREATE KEYSPACE IF NOT EXISTS test_data \nWITH replication \u003d {\n\t\u0027class\u0027 : \u0027SimpleStrategy\u0027,\n\t\u0027replication_factor\u0027 : 1\n};\n\ndescribe keyspaces;\ndescribe keyspace test_data;\n\nuse test_data;\n\nDROP TABLE IF EXISTS data;\n\nCREATE TABLE IF NOT EXISTS data ( \n    id\ttext,\n    name\ttext,\n    PRIMARY KEY (id)\n);\n\ndescribe table data;",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-02 14:35:39.229",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "fontSize": 9.0,
+        "results": {},
+        "editorSetting": {
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\n\n\u003cbr/\u003e\n\u003cbr/\u003e\n\u003cnav class\u003d\"navbar navbar-default\"\u003e\n    \u003cul class\u003d\"nav navbar-nav\"\u003e\n        \n        \u003cli\u003e\n            \u003ca\u003e\u003cstrong\u003eDESCRIBE TABLE data;\u003c/strong\u003e\u003c/a\u003e\n        \u003c/li\u003e\n    \u003c/ul\u003e\n    \u003cul class\u003d\"nav navbar-nav navbar-right\"\u003e\n        \u003cli class\u003d\"dropdown\"\u003e\n            \u003ca class\u003d\"dropdown-toggle\" data-toggle\u003d\"dropdown\" role\u003d\"button\" aria-haspopup\u003d\"true\" aria-expanded\u003d\"false\"\u003e\n                \u003cstrong\u003eLegend\u003c/strong\u003e\n                \u003cspan class\u003d\"caret\"\u003e\u003c/span\u003e\n            \u003c/a\u003e\n            \u003cul class\u003d\"dropdown-menu\"\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-dashboard text-muted\" /\u003e\u0026nbsp;Cluster\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-folder-open text-danger\" /\u003e\u0026nbsp;\u0026nbsp;Keyspace\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-copyright-mark text-warning\" /\u003e\u0026nbsp;\u0026nbsp;UDT\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-th-list text-primary\" /\u003e\u0026nbsp;\u0026nbsp;Table\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-eye-open text-primary\" /\u003e\u0026nbsp;\u0026nbsp;Materialized View\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-random text-success\" /\u003e\u0026nbsp;\u0026nbsp;Function\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-retweet text-success\" /\u003e\u0026nbsp;\u0026nbsp;Aggregate\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli role\u003d\"separator\" class\u003d\"divider text-muted\"\u003e\u003c/li\u003e\n                \u003cli class\u003d\"dropdown-header\"\u003e\u003cspan class\u003d\"text-primary\"\u003eTable icons\u003c/span\u003e\u003c/li\u003e\n                \u003cli class\u003d\"bg-info\"\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-fullscreen\" /\u003e\u0026nbsp;\u0026nbsp;Partition Key\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli class\u003d\"bg-warning\"\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-pushpin\" /\u003e\u0026nbsp;\u0026nbsp;Static Column\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli class\u003d\"bg-success\"\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-sort\" /\u003e\u0026nbsp;\u0026nbsp;Clustering Column\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli class\u003d\"bg-success\"\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-sort-by-attributes\" /\u003e\u0026nbsp;\u0026nbsp;Clustering Order ASC\n                    \u003c/a\u003e\n                \u003c/li\u003e\n                \u003cli class\u003d\"bg-success\"\u003e\n                    \u003ca role\u003d\"button\"\u003e\n                        \u003ci class\u003d\"glyphicon glyphicon-sort-by-attributes-alt\" /\u003e\u0026nbsp;\u0026nbsp;Clustering Order DESC\n                    \u003c/a\u003e\n                \u003c/li\u003e\n            \u003c/ul\u003e\n        \u003c/li\u003e\n        \u003cli\u003e\n            \u003ca href\u003d\"#\"\u003e\u003c/a\u003e\n        \u003c/li\u003e\n    \u003c/ul\u003e\n\u003c/nav\u003e\n\u003chr/\u003e\n\n\u003cdiv class\u003d\"row\"\u003e\n    \u003cdiv class\u003d\"col-md-2\"/\u003e\n    \u003cdiv class\u003d\"col-md-8 col-offset-md-2\"\u003e\n        \u003cdiv class\u003d\"panel panel-default table-responsive table-bordered\"\u003e\n            \u003ctable class\u003d\"table\"\u003e\n                \n                \u003ccaption\u003e\u003ch4 class\u003d\"text-primary\"\u003e\u003ci class\u003d\"glyphicon glyphicon-th-list\"/\u003e\u0026nbsp;data\u003c/h4\u003e\u003c/caption\u003e\n                                \u003cthead\u003e\n                    \u003ctr\u003e\n                        \u003cth class\u003d\"col-md-4\"\u003eColumn Type\u003c/th\u003e\n                        \u003cth class\u003d\"col-md-4\"\u003eColumn Name\u003c/th\u003e\n                        \u003cth class\u003d\"col-md-4\"\u003eData Type\u003c/th\u003e\n                    \u003c/tr\u003e\n                \u003c/thead\u003e\n                \u003ctbody\u003e\n                                            \n\n                    \u003ctr class\u003d\"info\"\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003e\n                            \u003ci class\u003d\"glyphicon glyphicon-fullscreen\" title\u003d\"Partition Key\"/\u003e\n                        \u003c/td\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003eid\u003c/td\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003etext\u003c/td\u003e\n                    \u003c/tr\u003e\n                                                                    \n                    \u003ctr\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003e\u003c/td\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003ename\u003c/td\u003e\n                        \u003ctd class\u003d\"col-md-4\"\u003etext\u003c/td\u003e\n                    \u003c/tr\u003e\n                                            \n                \u003c/tbody\u003e\n            \u003c/table\u003e\n            \u003cdiv class\u003d\"panel-footer\"\u003e\n                \u003ca data-toggle\u003d\"collapse\" data-target\u003d\"#f8504110-cd8e-11e9-b644-abc38802e0e9_asCQL\" class\u003d\"text-primary\"\u003e\n                    \u003cstrong\u003eAs CQL statement\u003c/strong\u003e\n                    \u003cspan class\u003d\"caret\"\u003e\u003c/span\u003e\n                \u003c/a\u003e\n                \u003cbr/\u003e\u003cbr/\u003e\n                \u003cdiv class\u003d\"collapse\" id\u003d\"f8504110-cd8e-11e9-b644-abc38802e0e9_asCQL\"\u003e\n                    \u003cpre class\u003d\"well\"\u003eCREATE TABLE test_data.data (\n    id text,\n    name text,\n    PRIMARY KEY (id)\n) WITH read_repair_chance \u003d 0.0\n   AND dclocal_read_repair_chance \u003d 0.1\n   AND gc_grace_seconds \u003d 864000\n   AND bloom_filter_fp_chance \u003d 0.01\n   AND caching \u003d { \u0027keys\u0027 : \u0027ALL\u0027, \u0027rows_per_partition\u0027 : \u0027NONE\u0027 }\n   AND comment \u003d \u0027\u0027\n   AND compaction \u003d { \u0027class\u0027 : \u0027org.apache.cassandra.db.compaction.SizeTieredCompactionStrategy\u0027, \u0027max_threshold\u0027 : 32, \u0027min_threshold\u0027 : 4 }\n   AND compression \u003d { \u0027chunk_length_in_kb\u0027 : 64, \u0027class\u0027 : \u0027org.apache.cassandra.io.compress.LZ4Compressor\u0027 }\n   AND default_time_to_live \u003d 0\n   AND speculative_retry \u003d \u002799PERCENTILE\u0027\n   AND min_index_interval \u003d 128\n   AND max_index_interval \u003d 2048\n   AND crc_check_chance \u003d 1.0;\u003c/pre\u003e\n                \u003c/div\u003e\n            \u003c/div\u003e\n        \u003c/div\u003e\n            \u003c/div\u003e\n    \u003cdiv class\u003d\"col-md-2\"\u003e\u003c/div\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1564555940994_190630979",
+      "id": "20160119-181849_56311459",
+      "dateCreated": "2019-07-31 06:52:20.995",
+      "dateStarted": "2019-09-02 14:35:39.299",
+      "dateFinished": "2019-09-02 14:35:55.197",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "Write Spark DataFrame in Cassandra",
+      "text": "processedData.write.format(\"org.apache.spark.sql.cassandra\").option(\"header\",\"false\").mode(\"append\").options(Map( \"table\" -\u003e \"data\", \"keyspace\" -\u003e \"test_data\")).save()",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-02 14:36:49.104",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/scala",
+        "editorHide": false,
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [],
+          "values": [],
+          "groups": [],
+          "scatter": {}
+        },
+        "enabled": true,
+        "fontSize": 9.0,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1564555940996_-1193103798",
+      "id": "20160114-001131_987960956",
+      "dateCreated": "2019-07-31 06:52:20.996",
+      "dateStarted": "2019-08-26 15:18:21.969",
+      "dateFinished": "2019-08-26 15:18:30.683",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "12 - CQL Cassandra query",
+      "text": "%cassandra\n\nselect * from test_data.data limit 10;",
+      "user": "anonymous",
+      "dateUpdated": "2019-09-02 14:36:49.168",
+      "config": {
+        "colWidth": 12.0,
+        "editorMode": "ace/mode/undefined",
+        "editorHide": false,
+        "title": true,
+        "graph": {
+          "mode": "table",
+          "height": 300.0,
+          "optionOpen": false,
+          "keys": [
+            {
+              "name": "album",
+              "index": 0.0,
+              "aggr": "sum"
+            }
+          ],
+          "values": [
+            {
+              "name": "artist",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          ],
+          "groups": [],
+          "scatter": {
+            "xAxis": {
+              "name": "album",
+              "index": 0.0,
+              "aggr": "sum"
+            },
+            "yAxis": {
+              "name": "artist",
+              "index": 1.0,
+              "aggr": "sum"
+            }
+          }
+        },
+        "enabled": true,
+        "fontSize": 9.0,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "status": "string",
+                      "begin_trip_time": "string",
+                      "data_source": "string",
+                      "date_str": "string",
+                      "dropoff_time": "string",
+                      "hr_str": "string",
+                      "marketplace": "string",
+                      "order_uuid": "string",
+                      "request_time": "string",
+                      "trip_uuid": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "editOnDblClick": false
+        }
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\n\n\u003cdiv class\u003d\"container\"\u003e\n\u003cdiv class\u003d\"row text-center\"\u003e\n\u003ch4\u003eNo Result\u003c/h4\u003e\n\u003c/div\u003e\n\u003cbr/\u003e\n    \u003cdiv class\u003d\"row\"\u003e\n    \u003cdiv class\u003d\"col-md-3\"\u003e\u003c/div\u003e\n    \u003cdiv class\u003d\"col-md-6 col-offset-md-3 table-responsive table-bordered\"\u003e\n        \u003ctable class\u003d\"table\"\u003e\n            \u003ccaption\u003e\u003ch5\u003eLast query execution info\u003c/h5\u003e\u003c/caption\u003e\n            \u003cthead\u003e\n                \u003ctr\u003e\n                    \u003cth\u003eInfo\u003c/th\u003e\n                    \u003cth\u003eValue\u003c/th\u003e\n                \u003c/tr\u003e\n            \u003c/thead\u003e\n            \u003ctbody\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eStatement\u003c/td\u003e\n                    \u003ctd\u003eselect * from test_data.data limit 10;\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eAchieved Consistency\u003c/td\u003e\n                    \u003ctd\u003eN/A\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eTried Hosts\u003c/td\u003e\n                    \u003ctd\u003ecassandra_node_2172.18.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eQueried Hosts\u003c/td\u003e\n                    \u003ctd\u003ecassandra_node_2172.18.0.2:9042\u003c/td\u003e\n                \u003c/tr\u003e\n                \u003ctr\u003e\n                    \u003ctd\u003eSchema In Agreement\u003c/td\u003e\n                    \u003ctd\u003etrue\u003c/td\u003e\n                \u003c/tr\u003e\n            \u003c/tbody\u003e\n        \u003c/table\u003e\n    \u003c/div\u003e\n    \u003c/div\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1564555940997_-1301924708",
+      "id": "20160123-172148_256698728",
+      "dateCreated": "2019-07-31 06:52:20.997",
+      "dateStarted": "2019-09-02 14:36:49.208",
+      "dateFinished": "2019-09-02 14:36:49.472",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Spark Cassandra end to end",
+  "id": "2EK7HEUCD",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": [],
+    "cassandra:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

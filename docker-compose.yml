@@ -1,0 +1,115 @@
+version: '3.3'
+
+volumes:
+  volume_monitoring_prometheus: {}
+  volume_monitoring_grafana: {}
+
+networks:
+  general:
+    driver: bridge
+
+services:
+  zeppelin_notebook_server:
+    container_name: zeppelin_notebook_server
+    build:
+      context: zeppelin/
+    restart: unless-stopped
+    volumes:
+      - ./zeppelin/config/interpreter.json:/zeppelin/conf/interpreter.json:rw
+      - ./zeppelin/notebooks:/zeppelin/notebook
+      - ../sample-data:/sample-data:ro
+    ports:
+      - "8085:8080"
+    networks:
+      - general
+    labels:
+      container_group: "notebook"
+
+  cassandra_node_1:
+    container_name: cassandra_node_1
+    build:
+      context: ./cassandra
+    hostname: cassandra_node_1
+    networks:
+      - general
+    environment:
+      CASSANDRA_CLUSTER_NAME: "testbed"
+
+  cassandra_node_2:
+    container_name: cassandra_node_2
+    build:
+      context: ./cassandra
+    hostname: cassandra_node_2
+    networks:
+      - general
+    environment:
+      CASSANDRA_SEEDS: "cassandra_node_1"
+      CASSANDRA_CLUSTER_NAME: "testbed"
+
+  spark_base:
+    container_name: spark-base
+    build:
+      context: spark/base
+    image: spark-base:latest
+
+  spark_master:
+    container_name: spark-master
+    build:
+      context: spark/master/
+    networks:
+      - general
+    hostname: spark-master
+    ports:
+      - "3030:8080"
+      - "7077:7077"
+    environment:
+      - "SPARK_LOCAL_IP=spark-master"
+    depends_on:
+      - spark_base
+    volumes:
+      - ../sample-data:/sample-data:ro
+
+  spark_worker_1:
+    container_name: spark-worker-1
+    build:
+      context: spark/worker/
+    networks:
+      - general
+    hostname: spark-worker-1
+    ports:
+      - "3031:8081"
+    env_file: spark/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-1"
+    depends_on:
+      - spark_master
+    volumes:
+      - ../sample-data:/sample-data:ro
+
+  spark_worker_2:
+    container_name: spark-worker-2
+    build:
+      context: spark/worker/
+    networks:
+      - general
+    hostname: spark-worker-2
+    ports:
+      - "3032:8082"
+    env_file: spark/spark-worker-env.sh
+    environment:
+      - "SPARK_LOCAL_IP=spark-worker-2"
+    depends_on:
+      - spark_master
+    volumes:
+      - ../sample-data:/sample-data:ro
+
+# this is optional and can be commented out if the code doesn't has default jar for execution on the cluster.
+# this can act as reference on how to submit jobs to spark cluster.
+#  spark_submit:
+#    container_name: spark-submit
+#    build:
+#      context: spark/submit
+#    networks:
+#      - general
+#    depends_on:
+#      - spark_master
