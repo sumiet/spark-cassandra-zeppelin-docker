@@ -1,4 +1,5 @@
-# Financial Integrity Local Docker Environment
+# spark-cassandra-zeppelin-docker
+A docker setup for running Spark(2 nodes) Cassandra(2 nodes) and a Zeppelin server. This repository also contains a demo notebook to read json(jsonl) file from filesystem and push data to Cassandra key-space.
 
 ## Prerequisites
 Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed. The definitions in this directory have been verified to work with the following setup.
